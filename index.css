@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #2c3e50;
+  color: white;
+}
+
+.miniature {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ----- Expériences ----- */
+.liste-exp {
+  padding: 0;
+}
+
+.ligne-exp {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 15px;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.dates {
+  color: #555;
+  white-space: nowrap;
+}
+
+.details {
+  text-align: right;
+}
+
+/* ----- Tableau des compétences ----- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #2c3e50;
+  color: white;
+}
+
+/* ----- Mise en page des 3 sections ----- */
+main {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  padding: 20px 40px;
+}
+
+section {
+  flex: 1;
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 5px;
+}
+
+/* ----- Petit écran ----- */
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  header {
+    padding: 20px;
+  }
+}
