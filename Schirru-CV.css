@@ -1,9 +1,16 @@
+/* ===== Couleur principale : changer #2c3e50 partout pour changer le thème ===== */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   background-color: #f4f4f4;
+  /* Flexbox vertical : le footer reste en bas même si la page est courte */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* ----- En-tête ----- */
 header {
   display: flex;
   align-items: center;
@@ -20,9 +27,58 @@ header {
   border-radius: 50%;
 }
 
+/* ----- Menu de navigation ----- */
+nav {
+  background-color: #34495e;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 12px 18px;
+  color: white;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a.actif {
+  background-color: #2c3e50;
+}
+
+/* ----- Contenu ----- */
+main {
+  flex: 1; /* prend toute la place restante, pousse le footer en bas */
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  padding: 20px 40px;
+}
+
+section {
+  flex: 1;
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 5px;
+}
+
 /* ----- Expériences ----- */
 .liste-exp {
   padding: 0;
+  list-style: none;
 }
 
 .ligne-exp {
@@ -61,35 +117,85 @@ th {
   color: white;
 }
 
-/* ----- Mise en page des 3 sections ----- */
-main {
+/* ----- Contact ----- */
+.bouton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2c3e50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.bouton:hover {
+  background-color: #34495e;
+}
+
+.liste-reseaux {
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  list-style: none;
+}
+
+.liste-reseaux a {
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* ----- Pied de page ----- */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #2c3e50;
+  color: white;
+  font-size: 0.9em;
+}
+
+footer p {
+  margin: 0;
+}
+
+.liens-footer {
   display: flex;
   gap: 20px;
-  align-items: stretch;
-  padding: 20px 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-section {
-  flex: 1;
-  background-color: white;
-  padding: 15px 20px;
-  border-radius: 8px;
-}
-
-h2 {
-  color: #2c3e50;
-  border-bottom: 2px solid #2c3e50;
-  padding-bottom: 5px;
+.liens-footer a {
+  color: white;
 }
 
 /* ----- Petit écran ----- */
 @media (max-width: 900px) {
-  main {
-    flex-direction: column;
+  header,
+  main,
+  footer {
     padding: 20px;
   }
 
-  header {
-    padding: 20px;
+  main,
+  footer,
+  .liens-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu {
+    flex-wrap: wrap; /* les liens passent à la ligne au lieu de déborder */
+    gap: 0;
+  }
+
+  .ligne-exp {
+    flex-direction: column; /* dates au-dessus, société en dessous */
+    gap: 3px;
+  }
+
+  .details {
+    text-align: left;
   }
 }
